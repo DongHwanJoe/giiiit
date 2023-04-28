@@ -1,19 +1,9 @@
 const todoModel = require("../models/todoModel");
 
 const todoController = {
-  allSelect: (req, res) => {
-    todoModel.allSelect((error, result) => {
-      if (error) {
-        res.send(error);
-      } else {
-        res.json(result.rows);
-      }
-    });
-  },
-
-  select: (req, res) => {
-    const num = req.body.num;
-    todoModel.select(num, (error, result) => {
+  getList: (req, res) => {
+    const id = req.session.userid;
+    todoModel.select(id, (error, result) => {
       if (error) {
         res.send(error);
       } else {
@@ -23,9 +13,8 @@ const todoController = {
   },
 
   insert: (req, res) => {
-    const title = req.body.title;
     const contents = req.body.contents;
-    todoModel.insert(title, contents, (error, result) => {
+    todoModel.insert(contents, (error, result) => {
       if (error) {
         res.send(error);
       } else {
@@ -51,9 +40,8 @@ const todoController = {
 
   update: (req, res) => {
     const num = req.body.num;
-    const title = req.body.title;
     const contents = req.body.contents;
-    todoModel.update(num, title, contents, (error, result) => {
+    todoModel.update(num, contents, (error, result) => {
       if (error) {
         res.send(error);
       } else {
@@ -63,6 +51,19 @@ const todoController = {
       }
     });
   },
+
+  done: (req, res) => {
+    const num = req.body.num;
+    todoModel.done(num, (error, result) => {
+      if(error) {
+        res.send(error);
+      } else {
+        res.json({
+          seccess: true,
+        });
+      }
+    });
+  }
 };
 
 module.exports = todoController;

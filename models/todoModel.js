@@ -7,6 +7,11 @@ const pool = new Pool({
     database: 'eduDB',
     password: '1q2w3e4r',
     port: 5433
+    // user: 'postgres',
+    // host: 'localhost',
+    // database: 'postgrestestdb',
+    // password: '<dhjoe@1q2w3e4r>',
+    // port: 5432
 });
 
 mybatisMapper.createMapper(['./mappers/testMapper.xml']);
@@ -14,23 +19,17 @@ mybatisMapper.createMapper(['./mappers/testMapper.xml']);
 let format = {language: 'sql', indent: '  '};
 
 const testModel = {
-    allSelect: (callback) => {
-        let param = {}
-        let query = mybatisMapper.getStatement('testMapper', 'allselect', param, format);
-        pool.query(query, callback);
-    },
-
-    select: (num, callback) => {
+    select: (id, callback) => {
         let param = {
-            num : Number(num)
+            id : id
         }
-        let query = mybatisMapper.getStatement('testMapper', 'select', param, format);
+        let query = mybatisMapper.getStatement('testMapper', 'getList', param, format);
         pool.query(query, callback);
     },
 
-    insert: (title, contents, callback) => {
+    insert: (id, contents, callback) => {
         let param = {
-            title : title,
+            id : id,
             contents : contents
         }
         let query = mybatisMapper.getStatement('testMapper', 'insert', param, format);
@@ -45,15 +44,22 @@ const testModel = {
         pool.query(query, callback);
     },
 
-    update: (num, title, contents, callback) => {
+    update: (num, contents, callback) => {
         let param = {
             num : Number(num),
-            title : title,
             contents : contents
         }
         let query = mybatisMapper.getStatement('testMapper', 'update', param, format);
         pool.query(query, callback);
     },
+
+    done: (num, callback) => {
+        let param = {
+            num : Number(num)
+        }
+        let query = mybatisMapper.getStatement('testMapper', 'done', param, format);
+        pool.query(query, callback);
+    }
 };
   
 module.exports = testModel;

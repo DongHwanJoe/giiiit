@@ -2,11 +2,16 @@ const mybatisMapper = require('mybatis-mapper');
 const { Pool } = require('pg');
 
 const pool = new Pool({
+    // user: 'postgres',
+    // host: 'localhost',
+    // database: 'postgrestestdb',
+    // password: '<dhjoe@1q2w3e4r>',
+    // port: 5432
     user: 'postgres',
     host: 'localhost',
-    database: 'postgrestestdb',
-    password: '<dhjoe@1q2w3e4r>',
-    port: 5432
+    database: 'edudb',
+    password: '1q2w3e4r',
+    port: 5433
 });
 
 mybatisMapper.createMapper(['./mappers/usersMapper.xml']);

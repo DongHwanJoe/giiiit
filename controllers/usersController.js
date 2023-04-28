@@ -32,9 +32,9 @@ const usersController = {
                     const hashedPwd = crypto.createHash('md5').update(pwd + salt).digest('hex');
                     
                     if (savedPwd === hashedPwd) {
-                        console.log(req.session);
-                        res.json({ success: true, user });
                         req.session.userid = user.id;
+                        res.json({ success: true, user });
+                        console.log("controller" + req.session.id);
                         console.log(req.session);
                     } else {
                         res.json({ success: false, message: "비밀번호가 일치하지 않습니다." });
@@ -65,7 +65,7 @@ const usersController = {
             res.status(401).send("Unauthorized");
             return;
         }
-        const id = req.session.id;
+        const id = req.session.userid;
         console.log(id);
         usersModel.getData(id, (error, result) => {
             if (error) {
