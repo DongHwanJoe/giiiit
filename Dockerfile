@@ -20,4 +20,4 @@ RUN npm install
 EXPOSE 3000
 
 # docker run 명령에서 실행항 명령이, 이 명령어 부터는 제작타임이 아닌 런타임에서 실행됨
-CMD ["node", "index.js"]
+CMD ["node", "app.js"]
