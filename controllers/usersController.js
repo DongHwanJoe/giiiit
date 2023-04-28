@@ -29,11 +29,16 @@ const usersController = {
                 } else {
                     const user = result.rows[0];
                     const [salt, savedPwd] = user.pwd.split('.');
+                    const userinfo = {
+                        userid: user.id,
+                        username: user.name
+                    } 
                     const hashedPwd = crypto.createHash('md5').update(pwd + salt).digest('hex');
                     
                     if (savedPwd === hashedPwd) {
                         req.session.userid = user.id;
-                        res.json({ success: true, user });
+                        req.session.username = user.name;
+                        res.json({ success: true, userinfo: userinfo});
                         console.log("controller" + req.session.id);
                         console.log(req.session);
                     } else {
