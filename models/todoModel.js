@@ -19,6 +19,12 @@ mybatisMapper.createMapper(['./mappers/testMapper.xml']);
 let format = {language: 'sql', indent: '  '};
 
 const testModel = {
+    allselect: (callback) => {
+        let param = {};
+        let query = mybatisMapper.getStatement('testMapper', 'allselect', param, format);
+        pool.query(query, callback);
+    },
+
     select: (id, callback) => {
         let param = {
             id : id

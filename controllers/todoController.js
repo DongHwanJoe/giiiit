@@ -1,6 +1,16 @@
 const todoModel = require("../models/todoModel");
 
 const todoController = {
+  allselect: (req, res) => {
+    todoModel.allselect((error, result) => {
+      if(error) {
+        res.send(error);
+      } else {
+        res.json(result.rows);
+      }
+    })
+  },
+  
   getList: (req, res) => {
     const id = req.session.userid;
     todoModel.select(id, (error, result) => {
