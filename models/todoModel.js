@@ -2,11 +2,11 @@ const mybatisMapper = require('mybatis-mapper');
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    user: 'postgres',
+    user: 'abacus',
     host: 'localhost',
     database: 'eduDB',
-    password: '1q2w3e4r',
-    port: 5433
+    password: 'aibt',
+    port: 5432
     // user: 'postgres',
     // host: 'localhost',
     // database: 'postgrestestdb',

@@ -7,11 +7,11 @@ const pool = new Pool({
     // database: 'postgrestestdb',
     // password: '<dhjoe@1q2w3e4r>',
     // port: 5432
-    user: 'postgres',
+    user: 'abacus',
     host: 'localhost',
-    database: 'edudb',
-    password: '1q2w3e4r',
-    port: 5433
+    database: 'eduDB',
+    password: 'aibt',
+    port: 5432
 });
 
 mybatisMapper.createMapper(['./mappers/usersMapper.xml']);
