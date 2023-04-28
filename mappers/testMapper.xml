@@ -6,22 +6,22 @@
     </select>
 
     <select id="getList">
-        SELECT * FROM todo WHERE id = #{id}
+        SELECT * FROM todo WHERE userid = #{userid}
     </select>
 
     <insert id="insert">
-        insert into todo (id, content, regdate) values (#{id}, #{content}, now())
+        insert into todo (userid, text, createat) values (#{userid}, #{text}, now())
     </insert>
 
     <delete id="delete">
-        delete from todo where num = #{num}
+        delete from todo where id = #{id}
     </delete>
 
     <update id="update">
-        update todo set content = #{content} where num = #{num}
+        update todo set text = #{text} where id = #{id}
     </update>
 
     <update id="done">
-        update todo set done = true, donedate = now() where num = #{num}
+        update todo set done = true, doneat = now() where id = #{id}
     </update>
 </mapper>

@@ -24,8 +24,6 @@ app.use('/test', testRouter);
 
 app.get('/', (req, res) => {
     res.send("hello");
-    console.log("root" + req.session.id);
-    console.log(req.session);
 });
 
 var server = app.listen(3000, function(){

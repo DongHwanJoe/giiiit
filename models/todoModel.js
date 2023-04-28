@@ -25,43 +25,43 @@ const testModel = {
         pool.query(query, callback);
     },
 
-    select: (id, callback) => {
+    select: (userid, callback) => {
         let param = {
-            id : id
+            userid : userid
         }
         let query = mybatisMapper.getStatement('testMapper', 'getList', param, format);
         pool.query(query, callback);
     },
 
-    insert: (id, content, callback) => {
+    insert: (userid, text, callback) => {
         let param = {
-            id : id,
-            content : content
+            userid : userid,
+            text : text
         }
         let query = mybatisMapper.getStatement('testMapper', 'insert', param, format);
         pool.query(query, callback);
     },
 
-    delete: (num, callback) => {
+    delete: (id, callback) => {
         let param = {
-            num : Number(num)
+            id : Number(id)
         }
         let query = mybatisMapper.getStatement('testMapper', 'delete', param, format);
         pool.query(query, callback);
     },
 
-    update: (num, content, callback) => {
+    update: (id, text, callback) => {
         let param = {
-            num : Number(num),
-            content : content
+            id : Number(id),
+            text : text
         }
         let query = mybatisMapper.getStatement('testMapper', 'update', param, format);
         pool.query(query, callback);
     },
 
-    done: (num, callback) => {
+    done: (id, callback) => {
         let param = {
-            num : Number(num)
+            id : Number(id)
         }
         let query = mybatisMapper.getStatement('testMapper', 'done', param, format);
         pool.query(query, callback);

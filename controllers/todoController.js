@@ -27,9 +27,9 @@ const todoController = {
   },
 
   insert: (req, res) => {
-    const id = req.session.userid
-    const content = req.body.content;
-    todoModel.insert(id, content, (error, result) => {
+    const userid = req.session.userid
+    const text = req.body.text;
+    todoModel.insert(userid, text, (error, result) => {
       if (error) {
         res.send(error);
       } else {
@@ -41,8 +41,8 @@ const todoController = {
   },
 
   delete: (req, res) => {
-    const num = req.body.num;
-    todoModel.delete(num, (error, result) => {
+    const id = req.body.id;
+    todoModel.delete(id, (error, result) => {
       if (error) {
         res.send(error);
       } else {
@@ -54,9 +54,9 @@ const todoController = {
   },
 
   update: (req, res) => {
-    const num = req.body.num;
-    const content = req.body.content;
-    todoModel.update(num, content, (error, result) => {
+    const id = req.body.id;
+    const text = req.body.text;
+    todoModel.update(id, text, (error, result) => {
       if (error) {
         res.send(error);
       } else {
@@ -68,8 +68,8 @@ const todoController = {
   },
 
   done: (req, res) => {
-    const num = req.body.num;
-    todoModel.done(num, (error, result) => {
+    const id = req.body.id;
+    todoModel.done(id, (error, result) => {
       if(error) {
         res.send(error);
       } else {

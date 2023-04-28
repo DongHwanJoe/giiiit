@@ -39,8 +39,6 @@ const usersController = {
                         req.session.userid = user.id;
                         req.session.username = user.name;
                         res.json({ success: true, userinfo: userinfo});
-                        console.log("controller" + req.session.id);
-                        console.log(req.session);
                     } else {
                         res.json({ success: false, message: "비밀번호가 일치하지 않습니다." });
                     }
