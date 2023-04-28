@@ -3,8 +3,8 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
     user: 'abacus',
-    host: 'localhost',
-    database: 'eduDB',
+    host: '192.168.0.103',
+    database: 'edudb',
     password: 'aibt',
     port: 5432
     // user: 'postgres',
