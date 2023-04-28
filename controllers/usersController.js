@@ -61,7 +61,7 @@ const usersController = {
     },
 
     getData: (req, res) => {
-        if (!req.session) {
+        if (!req.session.userid) {
             res.status(401).send("Unauthorized");
             return;
         }

@@ -9,7 +9,7 @@ const pool = new Pool({
     // port: 5432
     user: 'abacus',
     host: 'localhost',
-    database: 'eduDB',
+    database: 'edudb',
     password: 'aibt',
     port: 5432
 });

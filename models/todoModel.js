@@ -33,10 +33,10 @@ const testModel = {
         pool.query(query, callback);
     },
 
-    insert: (id, contents, callback) => {
+    insert: (id, content, callback) => {
         let param = {
             id : id,
-            contents : contents
+            content : content
         }
         let query = mybatisMapper.getStatement('testMapper', 'insert', param, format);
         pool.query(query, callback);
@@ -50,10 +50,10 @@ const testModel = {
         pool.query(query, callback);
     },
 
-    update: (num, contents, callback) => {
+    update: (num, content, callback) => {
         let param = {
             num : Number(num),
-            contents : contents
+            content : content
         }
         let query = mybatisMapper.getStatement('testMapper', 'update', param, format);
         pool.query(query, callback);

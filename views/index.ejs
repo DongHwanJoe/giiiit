@@ -30,27 +30,15 @@
     <br>
 
     <p>select TEST2</p>
-    <form method="post" action="/api/todo/select">
-        <p>
-          <label for="num">num:</label>
-          <input type="number" name="num" id="num">
-        </p>
-        <p>
-          <button type="submit">select</button>
-        </p>
-    </form>
+    <p><a href="/api/todo/getList">all data</a></p>
     <br>
     <br>
 
     <p>insert TEST</p>
     <form method="post" action="/api/todo/insert">
         <p>
-          <label for="title">title:</label>
-          <input type="text" name="title" id="title">
-        </p>
-        <p>
-          <label for="contents">contents:</label>
-          <input type="text" name="contents" id="contents">
+          <label for="content">contents:</label>
+          <input type="text" name="content" id="content">
         </p>
         <p>
           <button type="submit">insert</button>
@@ -79,12 +67,8 @@
             <input type="number" name="num" id="num">
         </p>
         <p>
-            <label for="title">title:</label>
-            <input type="text" name="title" id="title">
-        </p>
-        <p>
-            <label for="contents">contents:</label>
-            <input type="text" name="contents" id="contents">
+            <label for="content">contents:</label>
+            <input type="text" name="content" id="content">
         </p>
         <p>
             <button type="submit">update</button>

@@ -10,21 +10,26 @@ const todoController = {
       }
     })
   },
-  
+
   getList: (req, res) => {
-    const id = req.session.userid;
-    todoModel.select(id, (error, result) => {
-      if (error) {
-        res.send(error);
-      } else {
-        res.json(result.rows);
-      }
-    });
+    if(!req.session.userid){
+      res.status(401).send("Unauthorized");
+    } else {
+      const id = req.session.userid;
+      todoModel.select(id, (error, result) => {
+        if (error) {
+          res.send(error);
+        } else {
+          res.json(result.rows);
+        }
+      });
+    }
   },
 
   insert: (req, res) => {
-    const contents = req.body.contents;
-    todoModel.insert(contents, (error, result) => {
+    const id = req.session.userid
+    const content = req.body.content;
+    todoModel.insert(id, content, (error, result) => {
       if (error) {
         res.send(error);
       } else {
@@ -50,8 +55,8 @@ const todoController = {
 
   update: (req, res) => {
     const num = req.body.num;
-    const contents = req.body.contents;
-    todoModel.update(num, contents, (error, result) => {
+    const content = req.body.content;
+    todoModel.update(num, content, (error, result) => {
       if (error) {
         res.send(error);
       } else {

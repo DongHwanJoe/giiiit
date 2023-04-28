@@ -10,7 +10,7 @@
     </select>
 
     <insert id="insert">
-        insert into todo (num, id, contents, regdate) values (nextval('todo_seq'), #{id}, #{contents}, now())
+        insert into todo (id, content, regdate) values (#{id}, #{content}, now())
     </insert>
 
     <delete id="delete">
@@ -18,7 +18,7 @@
     </delete>
 
     <update id="update">
-        update todo set contents = #{contents} where num = #{num}
+        update todo set content = #{content} where num = #{num}
     </update>
 
     <update id="done">
